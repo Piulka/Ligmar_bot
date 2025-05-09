@@ -14,16 +14,28 @@ from config_settings import stop_script
 from utils.keyboard_utils import on_press
 from monitoring.stats_monitor import update_table
 from actions.mob_actions import attack_mob
+from utils.image_utils import locate_image
 
 def main_loop():
     global stop_script
-    targets = ['epic_mob', 'chest', 'altar', '1_mob', '2_mob'] 
+    targets = ['epic_mob', 'chest', 'altar', '1_mob', '2_mob']
+    forbidden_center = None
+    
     while not stop_script:
+        # Обновляем центр запретной зоны
+        if go_to_map_pos := locate_image('go_to_map'):
+            forbidden_center = (go_to_map_pos[0], go_to_map_pos[1] - 220)
+        
         target_found = False
         for target in targets:
-            if attack_mob(target):
-                target_found = True
-                break
+            if mob_pos := locate_image(target):
+                x, y = mob_pos
+                # Пропускаем если в запретной зоне
+                if forbidden_center and (x-forbidden_center[0])**2 + (y-forbidden_center[1])**2 <= 400:  # 20^2
+                    continue
+                if attack_mob(target):
+                    target_found = True
+                    break
         
         if not target_found:
             print("Цели не найдены. Повторная проверка...")

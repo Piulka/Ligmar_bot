@@ -3,7 +3,7 @@ import time
 import pyautogui
 from config_settings import stop_script, activity_count, resp_coords
 from utils.image_utils import locate_image, find_pixel_color
-from utils.action_utils import cheme, is_near_resp 
+from utils.action_utils import cheme, is_near_resp, cheme2
 from actions.skill_actions import use_skills_until_enemy_count
 
 def attack_mob(mob_name):
@@ -24,13 +24,16 @@ def attack_mob(mob_name):
             activity_count["total_mobs"] += 1
         elif mob_name == "2_mob":
             activity_count["total_mobs"] += 2
-        cheme('go_to')
+        cheme2('go_to')
         time.sleep(4)
+        cheme('go_to_map', dx=147, dy=-91)
+        enemy_count = locate_image('enemy_count')
+        here = locate_image('here')
+        if enemy_count or here:
+            return True
         use_skills_until_enemy_count()
         if mob_name == "chest" or mob_name == "altar":
-            time.sleep(2)
-        cheme('go_to_map')
-        cheme('go_to_map')
+            time.sleep(4)
 
         full_bp = locate_image('full_bp')
         if full_bp:
