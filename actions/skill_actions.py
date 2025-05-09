@@ -34,7 +34,7 @@ def use_skills_until_enemy_count():
             time.sleep(0.5)
             cheme('go_to_fight')
             pyautogui.scroll(-100, x=1285, y=586)
-            cheme('location_oldrud')
+            cheme('location_green')
             time.sleep(1)
             death_count += 1
 
@@ -50,7 +50,7 @@ def use_skills_until_enemy_count():
                 return False
             cheme('go_to_fight')
             pyautogui.scroll(-100, x=1285, y=586)
-            cheme('location_oldrud')
+            cheme('location_green')
             time.sleep(1)
             death_count += 1
 

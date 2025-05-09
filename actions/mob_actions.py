@@ -26,7 +26,6 @@ def attack_mob(mob_name):
             activity_count["total_mobs"] += 2
         cheme('go_to')
         time.sleep(4)
-        cheme('close_2')
         use_skills_until_enemy_count()
         cheme('go_to_map')
         cheme('go_to_map')
@@ -68,7 +67,7 @@ def attack_mob(mob_name):
             time.sleep(0.5)
             cheme('go_to_fight')
             pyautogui.scroll(-100, x=1285, y=586)
-            cheme('location_oldrud')
+            cheme('location_green')
             time.sleep(1)
 
         return True

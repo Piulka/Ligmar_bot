@@ -17,9 +17,9 @@ from actions.mob_actions import attack_mob
 
 def main_loop():
     global stop_script
-    if not attack_mob('1_mob'):
-        if not attack_mob('2_mob'):
-            if not attack_mob('epic_mob'):
+    if not attack_mob('epic_mob'):
+        if not attack_mob('1_mob'):
+            if not attack_mob('2_mob'):
                 time.sleep(0.1)
     return True
 
