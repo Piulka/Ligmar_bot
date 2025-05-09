@@ -9,7 +9,7 @@ from actions.skill_actions import use_skills_until_enemy_count
 def attack_mob(mob_name):
     global stop_script, activity_count, resp_coords
 
-    mob_image = locate_image(mob_name, confidence=0.99)
+    mob_image = locate_image(mob_name, confidence=0.85)
     if mob_image:
         if stop_script:
             return False
@@ -27,6 +27,8 @@ def attack_mob(mob_name):
         cheme('go_to')
         time.sleep(4)
         use_skills_until_enemy_count()
+        if mob_name == "chest" or mob_name == "altar":
+            time.sleep(2)
         cheme('go_to_map')
         cheme('go_to_map')
 

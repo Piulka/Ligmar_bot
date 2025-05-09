@@ -5,7 +5,7 @@ import numpy as np
 
 # Определяем пути к изображениям
 IMAGE_PATHS = {
-    'image': "/Users/piul/Scripts/Ligmar_bot-1/images/village.png"
+    'image': "/Users/piul/Scripts/Ligmar_bot-1/images/2_mob.png"
 }
 
 def check_screen_resolution():

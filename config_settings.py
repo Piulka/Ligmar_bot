@@ -9,6 +9,8 @@ resp_coords = None
 
 # Счетчики активности
 activity_count = {
+    "altar": 0,
+    "chest": 0,
     "1_mob": 0,
     "2_mob": 0,
     "epic_mob": 0,

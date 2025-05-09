@@ -2,7 +2,7 @@
 import pyautogui
 from PIL import ImageGrab
 
-def locate_image(image_path, confidence=0.9):
+def locate_image(image_path, confidence=0.85):
     try:
         full_path = f"/Users/piul/Scripts/Ligmar_bot-1/images/{image_path}.png"
         location = pyautogui.locateOnScreen(full_path, confidence=confidence)

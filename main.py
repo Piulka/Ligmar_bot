@@ -17,11 +17,17 @@ from actions.mob_actions import attack_mob
 
 def main_loop():
     global stop_script
-    if not attack_mob('epic_mob'):
-        if not attack_mob('1_mob'):
-            if not attack_mob('2_mob'):
-                time.sleep(0.1)
-    return True
+    targets = ['epic_mob', 'chest', 'altar', '1_mob', '2_mob'] 
+    while not stop_script:
+        target_found = False
+        for target in targets:
+            if attack_mob(target):
+                target_found = True
+                break
+        
+        if not target_found:
+            print("Цели не найдены. Повторная проверка...")
+            time.sleep(0.5)
 
 if __name__ == "__main__":
     print("3...")

@@ -15,7 +15,16 @@ def use_skills_until_enemy_count():
         if stop_script:
             return False
         pyautogui.click(skill_stun)
-
+        time.sleep(2)
+    
+    skill_buff = locate_image('skill_def')
+    buff_def = locate_image('buff_def')
+    if not buff_def:
+        pyautogui.click(skill_buff)
+    epic_mob = locate_image('epic_mob')
+    buff_def2 = locate_image('buff_def2')
+    if epic_mob:
+        pyautogui.click(buff_def2)
     while not enemy_count and not stop_script:
         if stop_script:
             return False
