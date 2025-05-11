@@ -1,3 +1,5 @@
+
+
 import pyautogui
 from pynput import keyboard
 
@@ -16,11 +18,6 @@ print("Нажмите Enter, чтобы вывести координаты ку
 # Запуск слушателя клавиатуры
 with keyboard.Listener(on_press=on_press) as listener:
     listener.join()
-    
-    
-    
-    
-    
     
     
     

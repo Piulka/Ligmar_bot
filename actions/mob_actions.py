@@ -31,6 +31,10 @@ def attack_mob(mob_name):
         here = locate_image('here')
         if enemy_count or here:
             return True
+        char = locate_image('char')
+        if char:
+            cheme2('go_to_map')
+            return True
         use_skills_until_enemy_count()
         if mob_name == "chest" or mob_name == "altar":
             time.sleep(4)
@@ -57,7 +61,7 @@ def attack_mob(mob_name):
                     pyautogui.click(x, y)
                     time.sleep(0.2)
                     cheme('to_chest')
-                    cheme('skip_window')
+                    cheme('close_2')
                     activity_count["epic_items"] += 1
                 else:
                     print("Пиксель цвета (44, 12, 92) не найден.")
